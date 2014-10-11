@@ -10,16 +10,18 @@
   </style>
 </head>
 <body>
-  <canvas width='700' height='700' id='canvas'></canvas>
+  <canvas id='canvas'></canvas>
   <script type="text/javascript" charset="utf-8" src="lib/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="lib/movingObject.js"></script>
   <script type="text/javascript" charset="utf-8" src="lib/utils.js"></script>
 
   <script type="text/javascript" charset="utf-8">
     var canvas  = $('#canvas')[0];
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     var c       = canvas.getContext('2d');
     c.fillStyle = 'black';
-    c.fillRect(0,0,700,700)
+    c.fillRect(0,0,window.innerWidth,window.innerHeight)
   </script>
 </body>
 </html>
