@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Asteroids</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <style>
     html, body, canvas {
       padding: 0px;
@@ -9,8 +10,20 @@
     }
   </style>
 </head>
-<body>
-  <canvas id='canvas' style="background-image:url(space.jpg);background-size:cover;"></canvas>
+<body style="background-color:black">
+  <canvas id='canvas' style="background-image:url(space1.jpg);background-size:cover;display:none"></canvas>
+  <div class="container">
+    <div style="color:red;z-index:1000">
+      <div class="row">
+        <h1 class="col-xs-2 text-center">  W</h1>
+        <h1 class="col-xs-4">M: fire missiles</h1>
+      </div>
+      <div class="row">
+        <h1 class="col-xs-2 text-center">A S D</h1>
+      </div>
+      <h1>Game is loading...</h1>
+    </div>
+  </div>
   <script type="text/javascript" charset="utf-8" src="lib/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="lib/keymaster.js" ></script>
   <script type="text/javascript" src="lib/utils.js" ></script>
@@ -21,14 +34,19 @@
   <script type="text/javascript" src="lib/game.js" ></script>
   <script type="text/javascript" src="lib/gameView.js" ></script>
   <script>
-    $(function() {
+    var gameStart = function() {
+      var music = new Audio();
+      music.src = "./star_wars.mp3";
+      music.play();
       var canvas    = $('#canvas')[0];
+      canvas.style.display = "block";
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
       var ctx       = canvas.getContext('2d');
       var game      = new Asteroids.Game();
       new Asteroids.GameView(game, ctx).start();
-    })
+    }
+    setTimeout( gameStart, 3000 );
   </script>
 </body>
 </html>
